@@ -46,7 +46,8 @@ $(document).ready(function(){
                     $("#liste").append(data.listing);
                     $("#print").empty();
                     $("#print").append(data.printline);
-
+                    $("#month").empty();
+                    $("#month").append(data.printline);
                     $("#weeknum").empty();
                     $("#weeknum").append("Semaine "+data.sem);
                     $("#flag").val(data.is_tmpconge);

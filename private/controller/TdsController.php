@@ -418,6 +418,7 @@ class TdsController extends Controller{
         $table['real_sem'] = $semaine['sem'];
         $table['sem'] = $semaine['sem'];
         $table['printline'] = "<a href=".Router::url('/tds/printWeek/'.$semaine['tmstp'])." target='_blank' class='css3button'>Imprimer</a>";
+        $table['monthview'] = "<a href=".Router::url('/month/index/'.$semaine['tmstp'])." class='css3button'>Vue mensuelle</a>";
         return $table;
     }
 

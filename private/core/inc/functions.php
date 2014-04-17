@@ -263,6 +263,25 @@
     return $current;   
   }
   /**
+   * Retourne le jour courant au format MySql
+   * @return string jour au format Y-m-d h:i:s
+   */
+  function getCurrentMonth(){
+    $current = new DateTime();
+    $current = $current->format('m');
+    return $current;   
+  }
+
+  /**
+   * Retourne le premier et dernier jour du mois.
+   * @param string  $month numéro du mois
+   * @return array Tableau avec date début et date fin du mois. 
+   */
+  function getMonthLimits($month){
+    
+    return [];
+  }
+  /**
    * Rempli un tableau de dates
    * @param string $jour
    * @return array $dates - tableau de tous les $jour de l'année

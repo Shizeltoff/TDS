@@ -125,8 +125,8 @@
         <tr>
             <td><a href="<?php echo Router::url('/tds/edittds');?>" class="css3button">Aujourd'hui</a></td>
             <td id="print"><?php echo $table['printline']; ?></td>
-            <!-- <td><a href="<?php // echo Router::url('/tds/edittds');?>" class="css3button">Vue mensuelle</a></td> -->
-            <td><a href="<?php echo '/calendrier.php'; ?>" class="css3button" target="_blank">Vue mensuelle</a></td>
+            <td id="month"><?php echo $table['monthview'];?></td> 
+            <!--<td><a href="<?php// echo '/calendrier.php'; ?>" class="css3button" target="_blank">Vue mensuelle</a></td>-->
             <td><a href="<?php echo Router::url('/calendar/exportIcal');?>" class="css3button">Export Ical</a></td>
             <td></td>
         </tr>    
