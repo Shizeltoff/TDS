@@ -1,0 +1,100 @@
+@font-face {
+	font-family: 'entypo';
+	src:url('entypo-fonts/entypo.eot');
+	src:url('entypo-fonts/entypo.eot?#iefix') format('embedded-opentype'),
+		url('entypo-fonts/entypo.ttf') format('truetype'),
+		url('entypo-fonts/entypo.woff') format('woff'),
+		url('entypo-fonts/entypo.svg#entypo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.valide:before, .demande:before, .refus:before, .edit:before, .suppr:before, .logout:before,.error:before, .infor:before{
+	content:'v';
+	font-family: 'entypo';
+	font-size: 16px;
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	margin-right: 2px;
+}
+
+.valide:before{
+	content:'v';
+	color: green;
+}
+.demande:before{
+	content:'d';
+	color: blue;
+}
+.refus:before{
+	content:'r';
+	color: red;
+}
+.edit:before{
+	content:'m';
+}
+.edit{
+	text-decoration: none;
+}
+.suppr:before{
+	content:'s';
+}
+.suppr{
+	text-decoration: none;
+}
+
+.logout:before{
+	content:'l';
+	padding-right: 2px;
+	font-size: 18px;
+}
+.error:before{
+	content:'e';
+}
+.infor:before{
+	content:'i';
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'entypo';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+	content: "\6d";
+}
+.icon-logout:before {
+	content: "\6c";
+}
+.icon-checkmark:before {
+	content: "\76";
+}
+.icon-cross:before {
+	content: "\72";
+}
+.icon-new:before {
+	content: "\65";
+}
+.icon-trash:before {
+	content: "\73";
+}
+.icon-info:before {
+	content: "\69";
+}
+.icon-clock:before {
+	content: "\64";
+}

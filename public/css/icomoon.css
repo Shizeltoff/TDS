@@ -1,0 +1,115 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('icomoon-fonts/icomoon.eot');
+	src:url('icomoon-fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('icomoon-fonts/icomoon.ttf') format('truetype'),
+		url('icomoon-fonts/icomoon.woff') format('woff'),
+		url('icomoon-fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.valide:before, .demande:before, .refus:before, .edit:before, .suppr:before, .logout:before,.error:before, .infor:before, .retrait:before, .ajout:before{
+	content:'v';
+	font-family: 'icomoon';
+	font-size: 16px;
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	margin-right: 2px;
+}
+
+.valide:before{
+	content:'v';
+	color: green;
+}
+.demande:before{
+	content:'d';
+	color: blue;
+}
+.refus:before{
+	content:'r';
+	color: red;
+}
+.edit:before{
+	content:'m';
+}
+.edit{
+	text-decoration: none;
+}
+.suppr:before{
+	content:'s';
+}
+.suppr{
+	/*text-decoration: none;*/
+}
+.logout:before{
+	content:'l';
+	padding-right: 2px;
+	font-size: 20px;
+}
+.error:before{
+	content:'e';
+}
+.infor:before{
+	content:'i';
+}
+
+.ajout:before{
+	content:'a';
+	color: #424242;
+}
+
+.retrait:before{
+	content: 'z';
+	color : red;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+	content: "\6d";
+}
+.icon-clock:before {
+	content: "\64";
+}
+.icon-remove:before {
+	content: "\73";
+}
+.icon-cancel-circle:before {
+	content: "\72";
+}
+.icon-checkmark-circle:before {
+	content: "\76";
+}
+.icon-plus:before {
+	content: "\61";
+}
+.icon-minus:before {
+	content: "\7a";
+}
+.icon-exit:before {
+	content: "\6c";
+}
+.icon-warning:before {
+	content: "\65";
+}
+.icon-info:before {
+	content: "\69";
+}

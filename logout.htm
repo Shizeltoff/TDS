@@ -1,0 +1,580 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body><span><p>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><table><tbody><tr><td><p></p><div id="debug"><p>/home/phpconges/TDS/private/core/Model.php ligne 240 fonction debug</p><ol class="debug"><li>/home/phpconges/TDS/private/core/inc/Log.php ligne 179</li><li>/home/phpconges/TDS/private/controller/ValidationController.php ligne 118</li><li>/home/phpconges/TDS/private/controller/ValidationController.php ligne 270</li><li>/home/phpconges/TDS/private/controller/ValidationController.php ligne 47</li><li>validate</li><li>/home/phpconges/TDS/private/core/Dispatcher.php ligne 34</li><li>/home/phpconges/TDS/public/index.php ligne 28</li></ol></div><pre>PDOException Object
+(
+    [message:protected] =&gt; SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'log_p_num' cannot be null
+    [string:private] =&gt; 
+    [code:protected] =&gt; 23000
+    [file:protected] =&gt; /home/phpconges/TDS/private/core/Model.php
+    [line:protected] =&gt; 236
+    [trace:private] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/core/Model.php
+                    [line] =&gt; 236
+                    [function] =&gt; execute
+                    [class] =&gt; PDOStatement
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; Array
+                                (
+                                    [:log_p_num] =&gt; 
+                                    [:log_user_login_par] =&gt; julien.le-breton
+                                    [:log_user_login_pour] =&gt; julien.le-breton
+                                    [:log_etat] =&gt; ok
+                                    [:log_comment] =&gt; Saisie de congés num  (type 7) pour julien.le-breton (5 jour(s)) (de 2014-04-03 am �&nbsp; 2014-04-10 pm)
+                                    [:log_date] =&gt; 2014-03-31 15:50:58
+                                )
+
+                        )
+
+                )
+
+            [1] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/core/inc/Log.php
+                    [line] =&gt; 179
+                    [function] =&gt; save
+                    [class] =&gt; Model
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; Array
+                                (
+                                    [log_p_num] =&gt; 
+                                    [log_user_login_par] =&gt; julien.le-breton
+                                    [log_user_login_pour] =&gt; julien.le-breton
+                                    [log_etat] =&gt; ok
+                                    [log_comment] =&gt; Saisie de congés num  (type 7) pour julien.le-breton (5 jour(s)) (de 2014-04-03 am �&nbsp; 2014-04-10 pm)
+                                    [log_date] =&gt; 2014-03-31 15:50:58
+                                )
+
+                        )
+
+                )
+
+            [2] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/controller/ValidationController.php
+                    [line] =&gt; 118
+                    [function] =&gt; dbWrite
+                    [class] =&gt; Log
+                    [type] =&gt; ::
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; julien.le-breton
+                            [1] =&gt; ajout
+                            [2] =&gt; Absence Object
+                                (
+                                    [p_login] =&gt; julien.le-breton
+                                    [p_date_deb] =&gt; 2014-04-03
+                                    [p_date_fin] =&gt; 2014-04-10
+                                    [p_demi_jour_deb] =&gt; am
+                                    [p_demi_jour_fin] =&gt; pm
+                                    [p_nb_jours] =&gt; 5
+                                    [p_commentaire] =&gt; +Joff
+                                    [p_type] =&gt; 7
+                                    [p_etat] =&gt; ok
+                                    [p_edition_id] =&gt; 
+                                    [p_motif_refus] =&gt; 
+                                    [p_date_demande] =&gt; 2014-01-08 16:51:58
+                                    [p_date_traitement] =&gt; 
+                                    [p_fermeture_id] =&gt; 
+                                    [p_num] =&gt; 
+                                    [collision] =&gt; 
+                                )
+
+                        )
+
+                )
+
+            [3] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/controller/ValidationController.php
+                    [line] =&gt; 270
+                    [function] =&gt; saveAbs
+                    [class] =&gt; ValidationController
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; Absence Object
+                                (
+                                    [p_login] =&gt; julien.le-breton
+                                    [p_date_deb] =&gt; 2014-04-03
+                                    [p_date_fin] =&gt; 2014-04-10
+                                    [p_demi_jour_deb] =&gt; am
+                                    [p_demi_jour_fin] =&gt; pm
+                                    [p_nb_jours] =&gt; 5
+                                    [p_commentaire] =&gt; +Joff
+                                    [p_type] =&gt; 7
+                                    [p_etat] =&gt; ok
+                                    [p_edition_id] =&gt; 
+                                    [p_motif_refus] =&gt; 
+                                    [p_date_demande] =&gt; 2014-01-08 16:51:58
+                                    [p_date_traitement] =&gt; 
+                                    [p_fermeture_id] =&gt; 
+                                    [p_num] =&gt; 
+                                    [collision] =&gt; 
+                                )
+
+                            [1] =&gt; ajout
+                        )
+
+                )
+
+            [4] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/controller/ValidationController.php
+                    [line] =&gt; 47
+                    [function] =&gt; editAbs
+                    [class] =&gt; ValidationController
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; Absence Object
+                                (
+                                    [p_login] =&gt; julien.le-breton
+                                    [p_date_deb] =&gt; 2014-04-02
+                                    [p_date_fin] =&gt; 2014-04-02
+                                    [p_demi_jour_deb] =&gt; am
+                                    [p_demi_jour_fin] =&gt; pm
+                                    [p_nb_jours] =&gt; 1
+                                    [p_commentaire] =&gt; MCAE PSSI
+                                    [p_type] =&gt; 3
+                                    [p_etat] =&gt; ok
+                                    [p_edition_id] =&gt; 
+                                    [p_motif_refus] =&gt; 
+                                    [p_date_demande] =&gt; 2014-03-31 15:50:24
+                                    [p_date_traitement] =&gt; 
+                                    [p_fermeture_id] =&gt; 
+                                    [p_num] =&gt; 8257
+                                    [collision] =&gt; 1
+                                )
+
+                            [1] =&gt; Absence Object
+                                (
+                                    [p_login] =&gt; julien.le-breton
+                                    [p_date_deb] =&gt; 2014-02-14
+                                    [p_date_fin] =&gt; 2014-04-01
+                                    [p_demi_jour_deb] =&gt; am
+                                    [p_demi_jour_fin] =&gt; pm
+                                    [p_nb_jours] =&gt; 30.9583333333
+                                    [p_commentaire] =&gt; +Joff
+                                    [p_type] =&gt; 7
+                                    [p_etat] =&gt; ok
+                                    [p_edition_id] =&gt; 
+                                    [p_motif_refus] =&gt; 
+                                    [p_date_demande] =&gt; 2014-01-08 16:51:58
+                                    [p_date_traitement] =&gt; 
+                                    [p_fermeture_id] =&gt; 
+                                    [p_num] =&gt; 8257
+                                    [collision] =&gt; 
+                                )
+
+                        )
+
+                )
+
+            [5] =&gt; Array
+                (
+                    [function] =&gt; validate
+                    [class] =&gt; ValidationController
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; logout
+                        )
+
+                )
+
+            [6] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/private/core/Dispatcher.php
+                    [line] =&gt; 34
+                    [function] =&gt; invokeArgs
+                    [class] =&gt; ReflectionMethod
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                            [0] =&gt; ValidationController Object
+                                (
+                                    [modified_ids] =&gt; Array
+                                        (
+                                        )
+
+                                    [request] =&gt; Request Object
+                                        (
+                                            [url] =&gt; /validation/validate/logout
+                                            [controller] =&gt; validation
+                                            [action] =&gt; validate
+                                            [data] =&gt; 
+                                            [params] =&gt; Array
+                                                (
+                                                    [0] =&gt; logout
+                                                )
+
+                                            [prefix] =&gt; 
+                                        )
+
+                                    [vars:private] =&gt; Array
+                                        (
+                                        )
+
+                                    [rendered:private] =&gt; 
+                                    [layouts] =&gt; Array
+                                        (
+                                            [0] =&gt; menu2
+                                            [1] =&gt; main
+                                            [2] =&gt; default
+                                        )
+
+                                    [form] =&gt; Form Object
+                                        (
+                                            [controller] =&gt; ValidationController Object
+ *RECURSION*
+                                            [errors] =&gt; Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [mail] =&gt; Mail Object
+                                        (
+                                            [session] =&gt; Session Object
+                                                (
+                                                )
+
+                                            [headers] =&gt; Array
+                                                (
+                                                    [0] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_new_demande
+                                                            [mail_subject] =&gt; APPLI CONGES - Demande de congés 
+                                                            [mail_body] =&gt; type=__TYPE_ABSENCE__
+Date: du __DATE_DEBUT__ au __DATE_FIN__
+
+ __SENDER_NAME__ a solicité une demande de congés dans l'application de gestion des congés.
+
+Merci de consulter votre application php_conges : __URL_ACCUEIL_CONGES__/
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                    [1] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_new_demande_resp_absent
+                                                            [mail_subject] =&gt; APPLI CONGES - Demande de congés - __TYPE_ABSENCE__
+                                                            [mail_body] =&gt; Type=  __TYPE_ABSENCE__
+Date: du __DATE_DEBUT__ au __DATE_FIN__
+ __SENDER_NAME__ a solicité une demande de congés dans l'application de gestion des congés.
+
+En votre absence, cette demande a été transférée �&nbsp; votre (vos) propre(s) responsable(s)./
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                    [2] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_valid_conges
+                                                            [mail_subject] =&gt; APPLI CONGES - Congés accepté
+                                                            [mail_body] =&gt;  __SENDER_NAME__ a enregistré/acceptéé un congés pour vous dans l'application de gestion des congés.
+Date: du __DATE_DEBUT__ au __DATE_FIN__
+
+Merci de consulter votre application php_conges : __URL_ACCUEIL_CONGES__/
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                    [3] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_refus_conges
+                                                            [mail_subject] =&gt; APPLI CONGES - Congés refusé
+                                                            [mail_body] =&gt;  __SENDER_NAME__ a refusé une demande de congés pour vous dans l'application de gestion des congés.
+Date: du __DATE_DEBUT__ au __DATE_FIN__
+
+Merci de consulter votre application php_conges : __URL_ACCUEIL_CONGES__/
+Date: du __DATE_DEBUT__ au __DATE_FIN__
+Explication Refus: __COMMENT__
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                    [4] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_annul_conges
+                                                            [mail_subject] =&gt; APPLI CONGES - Congés annulé
+                                                            [mail_body] =&gt;  __SENDER_NAME__ a annulé un de vos congés dans l'application de gestion des congés.
+
+Merci de consulter votre application php_conges : __URL_ACCUEIL_CONGES__/
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                    [5] =&gt; stdClass Object
+                                                        (
+                                                            [mail_nom] =&gt; mail_prem_valid_conges
+                                                            [mail_subject] =&gt; APPLI CONGES - Congés validé
+                                                            [mail_body] =&gt;  __SENDER_NAME__ a validé (première validation) un congés pour vous dans l'application de gestion des congés.
+Il doit maintenant être accepté en deuxième validation.
+
+Merci de consulter votre application php_conges : __URL_ACCUEIL_CONGES__/
+
+-------------------------------------------------------------------------------------------------------
+Ceci est un message automatique.
+                                                        )
+
+                                                )
+
+                                            [responsables] =&gt; Array
+                                                (
+                                                    [0] =&gt; stdClass Object
+                                                        (
+                                                            [gr_login] =&gt; marie-therese.lemperriere
+                                                            [u_email] =&gt; marie-therese.lemperriere@aviation-civile.gouv.fr
+                                                            [u_nom] =&gt; LEMPERRIERE
+                                                            [u_prenom] =&gt; Marie-Thérèse
+                                                        )
+
+                                                    [1] =&gt; stdClass Object
+                                                        (
+                                                            [gr_login] =&gt; somanos.sar
+                                                            [u_email] =&gt; somanos.sar@aviation-civile.gouv.fr
+                                                            [u_nom] =&gt; SAR
+                                                            [u_prenom] =&gt; Somanos
+                                                        )
+
+                                                    [2] =&gt; stdClass Object
+                                                        (
+                                                            [gr_login] =&gt; martine.moreau
+                                                            [u_email] =&gt; martine.moreau@aviation-civile.gouv.fr
+                                                            [u_nom] =&gt; MOREAU
+                                                            [u_prenom] =&gt; Martine
+                                                        )
+
+                                                    [3] =&gt; stdClass Object
+                                                        (
+                                                            [gr_login] =&gt; luc.duteil
+                                                            [u_email] =&gt; luc.duteil@aviation-civile.gouv.fr
+                                                            [u_nom] =&gt; DUTEIL
+                                                            [u_prenom] =&gt; Luc
+                                                        )
+
+                                                    [4] =&gt; stdClass Object
+                                                        (
+                                                            [gr_login] =&gt; ange.balliano
+                                                            [u_email] =&gt; ange.balliano-balestra@aviation-civile.gouv.fr
+                                                            [u_nom] =&gt; BALLIANO-BALESTRA
+                                                            [u_prenom] =&gt; Ange
+                                                        )
+
+                                                )
+
+                                            [user] =&gt; stdClass Object
+                                                (
+                                                    [u_login] =&gt; julien.le-breton
+                                                    [u_nom] =&gt; LE-BRETON
+                                                    [u_prenom] =&gt; Julien
+                                                    [u_is_resp] =&gt; N
+                                                    [u_resp_login] =&gt; ange.balliano
+                                                    [u_is_admin] =&gt; N
+                                                    [u_see_all] =&gt; N
+                                                    [u_quotite] =&gt; 100
+                                                    [u_email] =&gt; julien.le-breton@aviation-civile.gouv.fr
+                                                    [u_num_exercice] =&gt; 0
+                                                )
+
+                                            [user_nomprenom] =&gt; 
+                                            [mail_headers] =&gt; 
+                                            [subject:private] =&gt; 
+                                            [body:private] =&gt; 
+                                            [conge:private] =&gt; 
+                                            [erreur:protected] =&gt; 
+                                            [mailer] =&gt; PHPMailer Object
+                                                (
+                                                    [Priority] =&gt; 3
+                                                    [CharSet] =&gt; UTF-8
+                                                    [ContentType] =&gt; text/plain
+                                                    [Encoding] =&gt; 8bit
+                                                    [ErrorInfo] =&gt; 
+                                                    [From] =&gt; root@localhost
+                                                    [FromName] =&gt; Root User
+                                                    [Sender] =&gt; 
+                                                    [Subject] =&gt; 
+                                                    [Body] =&gt; 
+                                                    [AltBody] =&gt; 
+                                                    [WordWrap] =&gt; 0
+                                                    [Mailer] =&gt; smtp
+                                                    [Sendmail] =&gt; /usr/sbin/sendmail
+                                                    [PluginDir] =&gt; 
+                                                    [Version] =&gt; 1.72
+                                                    [ConfirmReadingTo] =&gt; 
+                                                    [Hostname] =&gt; 
+                                                    [Host] =&gt; mail.lfpo.aviation-civile.gouv.fr
+                                                    [Port] =&gt; 25
+                                                    [Helo] =&gt; 
+                                                    [SMTPAuth] =&gt; 
+                                                    [Username] =&gt; 
+                                                    [Password] =&gt; 
+                                                    [Timeout] =&gt; 10
+                                                    [SMTPDebug] =&gt; 
+                                                    [SMTPKeepAlive] =&gt; 
+                                                    [smtp] =&gt; 
+                                                    [to] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [cc] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [bcc] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [ReplyTo] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [attachment] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [CustomHeader] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [message_type] =&gt; 
+                                                    [boundary] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [language] =&gt; Array
+                                                        (
+                                                        )
+
+                                                    [error_count] =&gt; 0
+                                                    [LE] =&gt; 
+
+                                                )
+
+                                        )
+
+                                    [cache:protected] =&gt; Cache Object
+                                        (
+                                            [dirname:private] =&gt; /home/phpconges/TDS/private/cache
+                                            [duration:private] =&gt; 0
+                                        )
+
+                                    [session] =&gt; Session Object
+                                        (
+                                        )
+
+                                    [Queries] =&gt; Queries Object
+                                        (
+                                            [queries] =&gt; Array
+                                                (
+                                                    [default] =&gt; select u_login,u_nom,u_prenom,u_is_resp,u_resp_login,u_is_admin,u_see_all,u_quotite,u_email,u_num_exercice from conges_users
+                                                    [user_group] =&gt; select gu_gid from conges_groupe_users
+                                                    [group_users] =&gt; select 
+						gu_login,
+						u_login,u_nom,u_prenom,u_is_resp,u_resp_login,u_is_admin,u_see_all,u_quotite,u_email,u_num_exercice
+					from conges_groupe_users
+					left join conges_users
+						on conges_groupe_users.gu_login = conges_users.u_login
+				
+                                                    [group_name] =&gt; select * from conges_groupe
+                                                    [responsables] =&gt; select
+						gr_login,
+						u_email,
+						u_nom,
+						u_prenom
+					from
+						conges_groupe_resp
+					left join conges_users
+						on conges_groupe_resp.gr_login =  conges_users.u_login
+				
+                                                    [resp_mail] =&gt; select u_email from conges_users
+                                                    [solde_user] =&gt; select * from conges_solde_user
+                                                    [solde] =&gt; select
+						ta_libelle,
+						su_nb_an,su_solde,su_reliquat
+			  		from conges_type_absence
+			  		left join conges_solde_user
+			  			on conges_type_absence.ta_id = conges_solde_user.su_abs_id
+                                                    [suivi] =&gt; select * from conges_periode
+                                                    [tmpabs] =&gt; select * from conges_temp
+                                                    [user_rtt] =&gt; select * from conges_artt
+                                                    [type_abs] =&gt; select * from conges_type_absence
+                                                    [ferie] =&gt; select * from conges_jours_feries
+                                                    [del_conge] =&gt; select p_nb_jours, p_type, p_etat from conges_periode
+                                                    [joff] =&gt; select p_num from conges_periode
+                                                    [mail_headers] =&gt; select * from conges_mail
+                                                    [etat_conge] =&gt; select p_etat from conges_periode
+                                                    [headers] =&gt; select * from conges_mail
+                                                )
+
+                                            [db] =&gt; PDO Object
+                                                (
+                                                )
+
+                                            [table] =&gt; conges_periode
+                                            [primaryKey] =&gt; p_num
+                                            [id] =&gt; 9929
+                                            [form] =&gt; Form Object
+                                                (
+                                                    [controller] =&gt; ValidationController Object
+ *RECURSION*
+                                                    [errors] =&gt; Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [1] =&gt; Array
+                                (
+                                    [0] =&gt; logout
+                                )
+
+                        )
+
+                )
+
+            [7] =&gt; Array
+                (
+                    [file] =&gt; /home/phpconges/TDS/public/index.php
+                    [line] =&gt; 28
+                    [function] =&gt; __construct
+                    [class] =&gt; Dispatcher
+                    [type] =&gt; -&gt;
+                    [args] =&gt; Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [errorInfo] =&gt; Array
+        (
+            [0] =&gt; 23000
+            [1] =&gt; 1048
+            [2] =&gt; Column 'log_p_num' cannot be null
+        )
+
+)
+</pre><br>
+<b>Warning</b>:  Cannot modify header information - headers already sent
+ by (output started at 
+/home/phpconges/TDS/private/core/inc/functions.php:11) in <b>/home/phpconges/TDS/private/core/Controller.php</b> on line <b>82</b><br>
+</td></tr></tbody></table></p></span></body></html>
