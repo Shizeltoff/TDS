@@ -271,9 +271,9 @@
   function getMonthLimits($tmstp){
     $month = date('m',$tmstp);
     $year = date('Y',$tmstp);
-    $first = date('Y-m-d',mktime(0,0,0,$month,1,$year));
-    $last = date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1);
-    return [$first,$last];
+    // $first = date('Y-m-d',mktime(0,0,0,$month,1,$year));
+    // $last = date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1);
+    return [date('Y-m-d',mktime(0,0,0,$month,1,$year)),date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1)];
   }
   /**
    * Rempli un tableau de dates

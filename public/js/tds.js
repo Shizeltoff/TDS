@@ -54,7 +54,11 @@ $(document).ready(function(){
                     $("#all").empty();
                     $("#all").append(data.completeweek);
                     getCellClass();
-                    },"json");
+                    },"json")
+                .error(function(data){
+                    msg =""+data.responseText;
+                    document.location.href="/debug/errormsg/"+msg;   
+                });
             });
         });
     });

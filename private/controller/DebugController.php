@@ -14,6 +14,9 @@ class DebugController extends Controller{
 	    }
 	}
 
+  public function errormsg($msg){
+    $this->set('msg',$msg);
+  }
   
 	public function testRequete(){
         $date_deb = '2013-07-01';

@@ -476,7 +476,8 @@ class TdsController extends Controller{
         }
         $ferie = array('classe'=>$classe, 'ids'=>$ids , 'bulles'=>$bulles);
         if(!empty($conges)){
-          $base_params = $this->fillDays($conges,$jours,$types);
+          $base_params = fillDays($conges,$jours,$types);
+          // $base_params = $this->fillDays($conges,$jours,$types);
           if(!empty($tmp_conges)){
             $tmp_params = $this->fillDays($tmp_conges,$jours,$types);
             foreach ($tmp_params as $key => $value) {

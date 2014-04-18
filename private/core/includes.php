@@ -17,6 +17,7 @@ include_once ('inc/Absence.php');
 include_once ('inc/Log.php');
 include_once ('inc/jourferie.php');
 include_once ('inc/conges/calcJours.php');
+include_once ('inc/conges/fillDays.php');
 include_once ('inc/conges/verifConge.php');
 include_once ('inc/conges/verifDateConge.php');
 include_once ('inc/conges/tempConges_func.php');

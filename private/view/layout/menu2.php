@@ -6,7 +6,7 @@
         <li><a class="hist" href="<?php echo Router::url('suivi/suivi/abs'); ?>">Suivi des absences</a></li>
         <li><a href="<?php echo Router::url('suivi/solde');?>">Consulter le solde</a></li>
         <li><a class="profile" href="<?php echo Router::url('membres/defJoff'); ?>">Définir un jour off periodique</a></li>
-    <?php if($_SESSION['login']=='guillaume.palliet' || $_SESSION['login']=='sebastien.heurtier' ): ?>
+    <?php if($_SESSION['login']=='guillaume.palliet' || $_SESSION['login']=='guigui' ): ?>
         <li><a href="<?php echo Router::url('debug/index'); ?>">Débugguage</a></li>
     <?php endif;?>
     </ul>
