@@ -6,7 +6,7 @@
      * @param array $types tableau d'association entre l'id du type de congé et son libellé
      * @return array tableau contenant les classes pour chaque jours,ainsi que les infos bulles et les ids des congés et leur état.
      **/
-    function fillDays($conges,$jours,$types){
+    function fillDays($conges,$jours,$types,$feries){
       $types[0]="taf";
       foreach ($jours as $k => $v) {
                 $tmp_class[$k] = array('am'=>' am_taf','pm'=>' pm_taf');  
@@ -153,7 +153,8 @@
               }
             }
       foreach ($jours as $k => $v) {
-            if(in_array($v, $this->cache->read('ferie'))){
+            if(in_array($v, $feries)){
+            // if(in_array($v, $this->cache->read('ferie'))){
               $classe[$k]="ferie";
             }else{
               $classe[$k] = substr($tmp_class[$k]['am'].$tmp_class[$k]['pm'],1);

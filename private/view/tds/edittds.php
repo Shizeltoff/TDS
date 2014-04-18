@@ -156,5 +156,5 @@
 <p>PIT ETRE UN DATE PICKER UN JOUR</p>
 </div>
 
-
+<p id="errormsg"></p>
 <script type="text/javascript" src="<?php echo Router::webroot("/js/tds.js")?>"></script>

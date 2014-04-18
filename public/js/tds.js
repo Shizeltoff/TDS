@@ -56,8 +56,8 @@ $(document).ready(function(){
                     getCellClass();
                     },"json")
                 .error(function(data){
-                    msg =""+data.responseText;
-                    document.location.href="/debug/errormsg/"+msg;   
+                    $("#errormsg").empty();
+                    $("#errormsg").append( data.responseText);
                 });
             });
         });
