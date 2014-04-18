@@ -134,7 +134,7 @@
 </div>
 <div id="listing">
     <fieldset class="liste">
-        <legend>Liste des congés a demander </legend>
+        <legend>Liste des congés a demander :</legend>
         <p>
             <a href="<?php echo Router::url('/validation/erase/tds'); ?>" class="right css3button" id="erase-button">Effacer vos modifications</a>
         </p>

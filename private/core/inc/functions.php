@@ -262,24 +262,18 @@
     $current = $current->format('Y-m-d H:i:s');
     return $current;   
   }
-  /**
-   * Retourne le jour courant au format MySql
-   * @return string jour au format Y-m-d h:i:s
-   */
-  function getCurrentMonth(){
-    $current = new DateTime();
-    $current = $current->format('m');
-    return $current;   
-  }
 
   /**
    * Retourne le premier et dernier jour du mois.
    * @param string  $month numéro du mois
    * @return array Tableau avec date début et date fin du mois. 
    */
-  function getMonthLimits($month){
-    
-    return [];
+  function getMonthLimits($tmstp){
+    $month = date('m',$tmstp);
+    $year = date('Y',$tmstp);
+    $first = date('Y-m-d',mktime(0,0,0,$month,1,$year));
+    $last = date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1);
+    return [$first,$last];
   }
   /**
    * Rempli un tableau de dates
