@@ -14,7 +14,7 @@ Class Controller{
 		$this->session = new Session;
 		$this->request = $request;
 		$this->form = new Form($this);
-		$this->cache = new Cache(CACHE_PATH,0);
+		$this->cache = new Cache(CACHE_PATH,43200);
 		$this->mail = new Mail;
 		include (CONFIG_PATH.DS.'hook.php');
 	}

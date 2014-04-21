@@ -264,7 +264,9 @@ class MembresController extends Controller{
                 }
             }
             $this->session->write('type_abs',$new_typabs);
-            $this->cache->write('type_abs',$type_abs);
+            if(!$this->cache->read('type_abs') || $this->cache->isExpired('type_abs')){
+                $this->cache->write('type_abs',$type_abs);
+            }   
 
         }
 

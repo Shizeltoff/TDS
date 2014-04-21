@@ -11,7 +11,9 @@ class MonthController extends Controller{
 			$month = getCurrentTimestamp();
 		}
 		$limits = getMonthLimits($month);
+		debug(returnMonthDays($month));die();
 		$jour = 'Les limites du mois en cours sont : '.$limits[0] .' '.$limits[1]; 
+		$this->getUserConges('guigui',$month);
 		$this->set('mois',$jour);
 	}
 
@@ -22,6 +24,7 @@ class MonthController extends Controller{
 	 * @return array tableau d'objets Absences.
 	 */
 	public function getUserConges($login,$month){
+      	debug(setDays(getFirstDayOfMonth($month),31));die();
 		$limits = getMonthLimits($month);
 		$first=$limits[0];
 		$last=$limits[1];
@@ -40,6 +43,9 @@ class MonthController extends Controller{
             unset($conges[$k]);
           }
         }
-        debug($conges);die();
+      	// $jours = getMonthDays($month);
+        $types = $this->cache->read('type_abs');
+        $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'));
+        debug($params);die();
 	}
 }

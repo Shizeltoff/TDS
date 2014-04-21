@@ -215,8 +215,8 @@
       $day = date('d',$starttimestamp);
       $month = date('m',$starttimestamp);
       $year = date('Y',$starttimestamp);
-      $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven');
-      $shdays = array('Mon'=>'lu','Tue'=>'ma','Wed'=>'me','Thu'=>'je','Fri'=>'ve');
+      $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
+      $shdays = array('Mon'=>'lu','Tue'=>'ma','Wed'=>'me','Thu'=>'je','Fri'=>'ve','Sat'=>"sa",'Sun'=>"di");
       $days = array();
       $today = getCurrentTimestamp();
       $d = date('d',$today);
@@ -224,8 +224,11 @@
       $y = date('Y',$today);
       $t = mktime(0,0,0,$m,$d,$y);
       $days['today']='';
+      // Mettre le tableau de jours à l'envers => $days["yyyy-mm-dd"] = "lun" $days["dd"] = "lu"
       for ($i=0; $i < $maxdays ; $i++) {  
           $mktime = mktime(0,0,0,$month,$day+$i,$year);
+          // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
+          // $days[date('d', $mktime)] = $shdays[date('D',$mktime)];
           $days[$lodays[date('D',$mktime)]] = date('Y-m-d', $mktime);
           $days[$shdays[date('D',$mktime)]] = date('d', $mktime);
           if($mktime == $t){
@@ -234,6 +237,8 @@
       }
       return $days;
   }
+
+
   /**
     * Retourne la semaine courante
     * @return string N° de la semaine courante
@@ -274,6 +279,34 @@
     // $first = date('Y-m-d',mktime(0,0,0,$month,1,$year));
     // $last = date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1);
     return [date('Y-m-d',mktime(0,0,0,$month,1,$year)),date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1)];
+  }
+  /**
+   * Retourne la liste des jours du mois demandé.
+   */
+  function returnMonthDays($tmstp){
+    $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
+    $shdays = array('Mon'=>'lu','Tue'=>'ma','Wed'=>'me','Thu'=>'je','Fri'=>'ve','Sat'=>"sa",'Sun'=>"di");
+    $days = array();
+    $month = date('m',$tmstp);
+    $year = date('Y',$tmstp);
+    $num = cal_days_in_month(CAL_GREGORIAN, $month , $year);
+    for ($i=0; $i < $num ; $i++) { 
+      $mktime = mktime(0,0,0,$month,1+$i,$year);    
+      $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
+      $days[date('d', $mktime)] = $shdays[date('D',$mktime)];
+    }
+    return $days;
+
+  }
+  /**
+   * Retourne le tableau de tous les jours  du mois.
+   * @param string  $month timestamp du mois demandé.
+   * @return array. 
+   */
+  function getFirstDayOfMonth($tmstp){
+    $month = date('m',$tmstp);
+    $year = date('Y',$tmstp);
+    return mktime(0,0,0,$month,1,$year);
   }
   /**
    * Rempli un tableau de dates
