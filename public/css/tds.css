@@ -80,6 +80,17 @@
   height: 40px;*/
   /*height:38px;*/
 }
+.month td>div {
+  background: #ccc;
+  position: relative;
+  height: 0;
+  width: 0;
+  border-top: 2.857px solid #ccc;
+  border-left:12.857px solid #ccc;
+  border-bottom: 2.857px solid #ccc;
+  border-right:12.857px solid #ccc;
+  outline: none;
+}
 .tab td>div {
   background: #ccc;
   position: relative;
@@ -91,7 +102,6 @@
   border-right:90px solid #ccc;
   outline: none;
 }
-
 .tab td>div span {
   visibility: hidden;
   position: absolute;
@@ -338,69 +348,89 @@ td.presence>div{
 .tdslegend div{
   margin:0;
   margin-left: 8px;
-  padding: 0;
+  padding: 4px;
 }
 
+.tdslegend *{
+  padding: 4px;
+  -webkit-border-radius : 2px;
+  oz-border-radius : 2px;
+  border-radius: 2px;
+}
 .tdslegend .ca{
-  border-top:10px solid #080;
+  /*border-top:10px solid #080;
   border-left:18px solid #080;
   border-right:18px solid #080;
   border-bottom:10px solid #080;
+*/
+background: #080;
 }
 .tdslegend .rtt{
-  border-top:10px solid #0f0;
+  background: #0f0;
+  /*border-top:10px solid #0f0;
   border-left:18px solid #0f0;
   border-right:18px solid #0f0;
   border-bottom:10px solid #0f0;
-}
+*/}
 .tdslegend .mal{
-  border-top:10px solid #ff0;
+  background: #ff0;
+  /*border-top:10px solid #ff0;
   border-left:18px solid #ff0;
   border-right:18px solid #ff0;
-  border-bottom:10px solid #ff0;
+  border-bottom:10px solid #ff0;*/
 }
 .tdslegend .rcp{
-  border-top:10px solid #9DF5A0;
+  background: #9DF5A0;
+/*  border-top:10px solid #9DF5A0;
   border-left:18px solid #9DF5A0;
   border-right:18px solid #9DF5A0;
-  border-bottom:10px solid #9DF5A0;
+  border-bottom:10px solid #9DF5A0;*/
 }
 
 .tdslegend .off{
+  background: #fff;
+ /* padding: 4px;
+  border-radius: 2px;*/
+  /*
   border-top:10px solid #fff;
   border-left:18px solid #fff;
   border-right:18px solid #fff;
-  border-bottom:10px solid #fff;
+  border-bottom:10px solid #fff;*/
 }
 .tdslegend .fo{
-  border-top:10px solid #5945DD;
+  background: #5945DD;
+  /*border-top:10px solid #5945DD;
   border-left:18px solid #5945DD;
   border-right:18px solid #5945DD;
-  border-bottom:10px solid #5945DD;
+  border-bottom:10px solid #5945DD;*/
 }
 .tdslegend .mi{
+  background: #BD2DED;/*
   border-top:10px solid #BD2DED;
   border-left:18px solid #BD2DED;
   border-right:18px solid #BD2DED;
-  border-bottom:10px solid #BD2DED;
+  border-bottom:10px solid #BD2DED;*/
 }
 .tdslegend .mo{
+  background: #FFC0CB;/*
   border-top:10px solid #FFC0CB;
   border-left:18px solid #FFC0CB;
   border-right:18px solid #FFC0CB;
-  border-bottom:10px solid #FFC0CB;
+  border-bottom:10px solid #FFC0CB;*/
 }
 .tdslegend .oth{
+  background: #FFA500;/*
   border-top:10px solid #FFA500;
   border-left:18px solid #FFA500;
   border-right:18px solid #FFA500;
-  border-bottom:10px solid #FFA500;
+  border-bottom:10px solid #FFA500;*/
 }
 .tdslegend .taf{
-  border-top:10px solid #ccc ;
+  background: #ccc;
+  /*border-top:10px solid #ccc ;
   border-left:18px solid #ccc ;
   border-right:18px solid #ccc ;
-  border-bottom:10px solid #ccc ;
+  border-bottom:10px solid #ccc ;*/
 }
 
 

@@ -10,11 +10,12 @@ class MonthController extends Controller{
 		if($month==null){
 			$month = getCurrentTimestamp();
 		}
-		$limits = getMonthLimits($month);
-		debug(returnMonthDays($month));die();
-		$jour = 'Les limites du mois en cours sont : '.$limits[0] .' '.$limits[1]; 
-		$this->getUserConges('guigui',$month);
-		$this->set('mois',$jour);
+		// $limits = getMonthLimits($month);
+		// // debug(returnMonthDays($month));die();
+		// $jour = 'Les limites du mois en cours sont : '.$limits[0] .' '.$limits[1]; 
+		// $this->getUserConges('guigui',$month);
+		$table = $this->createMonthTable();
+		$this->set('table',$table);
 	}
 
 	/*
@@ -46,6 +47,18 @@ class MonthController extends Controller{
       	// $jours = getMonthDays($month);
         $types = $this->cache->read('type_abs');
         $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'));
-        debug($params);die();
+        // debug($params);die();
+	}
+
+
+	public function createMonthTable(){
+		$table =array();
+		$table['mois'] = '<th></th>';
+		$table['user'] = '<th scope="row">PALLIET</th>';
+		for ($i=1; $i <=35 ; $i++) { 
+			$table['mois'] .= '<td>'.$i.'</td>';
+			$table['user'] .='<td>'.$i.'</td>';
+		}
+		return $table;
 	}
 }
