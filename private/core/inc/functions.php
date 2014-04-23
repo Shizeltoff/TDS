@@ -284,6 +284,7 @@
    * Retourne la liste des jours du mois demandé.
    */
   function returnMonthDays($tmstp){
+    $mois_num=array("01"=>"Janvier","02"=>"Février","03"=>"Mars","04"=>"Avril","05"=>"Mai","06"=>"Juin","07"=>"Juillet","08"=>"Aout","09"=>"Septembre","10"=>"Octobre","11"=>"Novembre","12"=>"Décembre");
     $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
     $shdays = array('Mon'=>'lu','Tue'=>'ma','Wed'=>'me','Thu'=>'je','Fri'=>'ve','Sat'=>"sa",'Sun'=>"di");
     $days = array();
@@ -293,9 +294,12 @@
     for ($i=0; $i < $num ; $i++) { 
       $mktime = mktime(0,0,0,$month,1+$i,$year);    
       $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
-      $days[date('d', $mktime)] = $shdays[date('D',$mktime)];
+      $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
     }
-    return $days;
+    // $days['2014-04-31'] ='jeu';
+    // $shd['31'] ='je';
+    $tableau = ['jours'=>$days,'shjours' => $shd,'nb_jours' =>$num , 'mois'=>$mois_num[$month]];
+    return $tableau;
 
   }
   /**

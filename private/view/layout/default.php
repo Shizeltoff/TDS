@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/menu2.css")?>">
         <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/notif.css")?>">
         <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/tds.css") ?>" media="all">
+        <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/month.css") ?>" media="all">
         <!-- <link rel="stylesheet" type="text/css" href="<?php //echo Router::webroot("css/print.css")?>" media="print" > -->
         <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/animate.css")?>">
         <link rel="stylesheet" type="text/css" href="<?php echo Router::webroot("css/icomoon.css")?>">

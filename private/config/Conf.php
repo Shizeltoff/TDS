@@ -74,6 +74,7 @@ Router::prefix('ajax','ajax');
 
 
 Router::connect('calendrier','tds/edittds');
+Router::connect('vue-mensuelle','month/index');
 Router::connect('nouvelle-absence','tds/newAbsence');
 Router::connect('connexion','membres/login');
 Router::connect('jour-off-periodique','membres/defJoff');

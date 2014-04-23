@@ -7,14 +7,11 @@ class MonthController extends Controller{
 	 * @param int $month timestamp du mois à afficher
 	 */
 	public function index($month=null){
+		$this->layouts = array('main','default');
 		if($month==null){
 			$month = getCurrentTimestamp();
 		}
-		// $limits = getMonthLimits($month);
-		// // debug(returnMonthDays($month));die();
-		// $jour = 'Les limites du mois en cours sont : '.$limits[0] .' '.$limits[1]; 
-		// $this->getUserConges('guigui',$month);
-		$table = $this->createMonthTable();
+		$table = $this->createMonthTable($month);
 		$this->set('table',$table);
 	}
 
@@ -50,15 +47,28 @@ class MonthController extends Controller{
         // debug($params);die();
 	}
 
-
-	public function createMonthTable(){
+	/**
+	 * Créer la vue mensuelle d'un mois donné. 
+	 * @param int $month timestamp du mois demandé
+	 * @return array 
+	 */
+	public function createMonthTable($month){
 		$table =array();
-		$table['mois'] = '<th></th>';
+		$tmp =returnMonthDays($month);
+		$table['mois'] = $tmp['mois'];
+		$jours = $tmp['jours'];
+		$shjours = $tmp['shjours'];
+		$nb_jours = $tmp['nb_jours'];
+		$table['descr_mois'] = '<th></th>';
 		$table['user'] = '<th scope="row">PALLIET</th>';
-		for ($i=1; $i <=35 ; $i++) { 
-			$table['mois'] .= '<td>'.$i.'</td>';
-			$table['user'] .='<td>'.$i.'</td>';
+		$table['others'] = '<tr><th scope="row">dude</th>';
+		foreach ($shjours as $key => $value) {
+			$table['descr_mois'] .= '<td>'.$value.' '.$key.'</td>';
+			$table['user'] .='<td><div class="am_off pm_ca"></div></td>';
+			$table['others'] .='<td><div class="am_taf pm_mi"></div></td>';
 		}
+		$table['user'] .='</tr>';
+		$table['others'] .='</tr>';
 		return $table;
 	}
 }
