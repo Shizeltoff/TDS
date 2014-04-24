@@ -12,6 +12,7 @@
 					left join conges_users
 						on conges_groupe_users.gu_login = conges_users.u_login
 				',
+				'group_logins'=>'select gu_login from conges_groupe_users',
 				'group_name'=>'select * from conges_groupe',
 				'responsables'=>'select
 						gr_login,

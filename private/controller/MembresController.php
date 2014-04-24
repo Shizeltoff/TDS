@@ -197,7 +197,11 @@ class MembresController extends Controller{
             ),
             Model::FETCH_OBJ
         );
-        
+        $logins = [$login => $usr->u_nom];
+        foreach ($users as $k => $u) {
+            $logins[$u->u_login] = $u->u_nom;
+        }
+        $this->session->write('group_logins', $logins);
         $this->session->write('group_users', $users);
 
     /*  Recupération des adresses mail des responsables de l'utilisateur */

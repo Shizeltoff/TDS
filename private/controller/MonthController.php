@@ -22,7 +22,6 @@ class MonthController extends Controller{
 	 * @return array tableau d'objets Absences.
 	 */
 	public function getUserConges($login,$month){
-      	debug(setDays(getFirstDayOfMonth($month),31));die();
 		$limits = getMonthLimits($month);
 		$first=$limits[0];
 		$last=$limits[1];
@@ -41,10 +40,7 @@ class MonthController extends Controller{
             unset($conges[$k]);
           }
         }
-      	// $jours = getMonthDays($month);
-        $types = $this->cache->read('type_abs');
-        $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'));
-        // debug($params);die();
+        return $conges;
 	}
 
 	/**
@@ -54,21 +50,29 @@ class MonthController extends Controller{
 	 */
 	public function createMonthTable($month){
 		$table =array();
+        $types = $this->cache->read('type_abs');
 		$tmp =returnMonthDays($month);
 		$table['mois'] = $tmp['mois'];
-		$jours = $tmp['jours'];
-		$shjours = $tmp['shjours'];
+		$jours = $tmp['dates'];
 		$nb_jours = $tmp['nb_jours'];
-		$table['descr_mois'] = '<th></th>';
-		$table['user'] = '<th scope="row">PALLIET</th>';
-		$table['others'] = '<tr><th scope="row">dude</th>';
-		foreach ($shjours as $key => $value) {
-			$table['descr_mois'] .= '<td>'.$value.' '.$key.'</td>';
-			$table['user'] .='<td><div class="am_off pm_ca"></div></td>';
-			$table['others'] .='<td><div class="am_taf pm_mi"></div></td>';
+		$table['month_detail'] = '<th></th>';
+		foreach ($tmp['jours'] as $key => $value) {
+				$table['month_detail'] .= '<td>'.$value.' '.$key.'</td>';
 		}
-		$table['user'] .='</tr>';
-		$table['others'] .='</tr>';
+		$table['all'] = '';
+		foreach ($this->session->read('group_logins') as $l => $n) {
+			$conges = $this->getUserConges($l,$month);
+	        $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'));
+	        $classe = $params['classe'];
+	        // $ids = $params['ids'];
+	        // $etat = $params['etat'];
+			$table['all'] .= '<tr><th scope="row">'.strtoupper($n).'</th>';
+	        $bulle = $params['bulles'];
+			foreach ($jours as $key => $value) {
+				$table['all'] .='<td><div class="'.$classe[$key].'">'.$bulle[$key].'</div></td>';
+			}
+			$table['all'] .= '</tr>';
+		}
 		return $table;
 	}
 }

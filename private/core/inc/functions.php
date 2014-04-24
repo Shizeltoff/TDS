@@ -163,7 +163,6 @@
       $semaine['sem'] = date('W',$timestamp);
       $semaine['tmstp'] = $timestamp;
       $semaine['moisannee'] = getWeekDescription($timestamp);
-
       return $semaine;
   }
 
@@ -173,35 +172,23 @@
     * @return string Chaine de caractère donnant le(s) mois et l'année de la semaine affichée
     **/
   function getWeekDescription($mondayTmstp){
-    $mois_num=array(
-          "01"=>"Janvier",
-          "02"=>"Février",
-          "03"=>"Mars",
-          "04"=>"Avril",
-          "05"=>"Mai",
-          "06"=>"Juin",
-          "07"=>"Juillet",
-          "08"=>"Aout",
-          "09"=>"Septembre",
-          "10"=>"Octobre",
-          "11"=>"Novembre",
-          "12"=>"Décembre",
-      );
     $friday = GetFridayTimestamp($mondayTmstp);
     $mois_lun = date('m',$mondayTmstp);
     $mois_ven = date('m',$friday);
     $year_lun = date('Y',$mondayTmstp);
     $year_ven = date('Y',$friday);
+    $str_mois_lun = returnMonthName($mois_lun);
+    $str_mois_ven = returnMonthName($mois_ven);
     if($mois_lun != $mois_ven){
       if($year_lun!=$year_ven){
-        return $mois_num[$mois_lun].' '.$year_lun.' / '.$mois_num[$mois_ven].' '.$year_ven;
+        return $str_mois_lun.' '.$year_lun.' / '.$str_mois_ven.' '.$year_ven;
       }
       else{
-        return $mois_num[$mois_lun].' / '.$mois_num[$mois_ven].' '.$year_lun;
+        return $str_mois_lun.' / '.$str_mois_ven.' '.$year_lun;
       }
     }
     else{
-      return $mois_num[$mois_lun].' '.$year_lun;
+      return $str_mois_lun.' '.$year_lun;
     }
   }
 
@@ -227,8 +214,6 @@
       // Mettre le tableau de jours à l'envers => $days["yyyy-mm-dd"] = "lun" $days["dd"] = "lu"
       for ($i=0; $i < $maxdays ; $i++) {  
           $mktime = mktime(0,0,0,$month,$day+$i,$year);
-          // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
-          // $days[date('d', $mktime)] = $shdays[date('D',$mktime)];
           $days[$lodays[date('D',$mktime)]] = date('Y-m-d', $mktime);
           $days[$shdays[date('D',$mktime)]] = date('d', $mktime);
           if($mktime == $t){
@@ -284,23 +269,32 @@
    * Retourne la liste des jours du mois demandé.
    */
   function returnMonthDays($tmstp){
-    $mois_num=array("01"=>"Janvier","02"=>"Février","03"=>"Mars","04"=>"Avril","05"=>"Mai","06"=>"Juin","07"=>"Juillet","08"=>"Aout","09"=>"Septembre","10"=>"Octobre","11"=>"Novembre","12"=>"Décembre");
     $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
-    $shdays = array('Mon'=>'lu','Tue'=>'ma','Wed'=>'me','Thu'=>'je','Fri'=>'ve','Sat'=>"sa",'Sun'=>"di");
     $days = array();
+    $dates = array();
     $month = date('m',$tmstp);
     $year = date('Y',$tmstp);
     $num = cal_days_in_month(CAL_GREGORIAN, $month , $year);
     for ($i=0; $i < $num ; $i++) { 
       $mktime = mktime(0,0,0,$month,1+$i,$year);    
-      $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
-      $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
+      $days[date('j', $mktime)] = $lodays[date('D',$mktime)];
+      $dates[date('j', $mktime)] = date('Y-m-d',$mktime);
+      // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
+      // $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
     }
-    // $days['2014-04-31'] ='jeu';
-    // $shd['31'] ='je';
-    $tableau = ['jours'=>$days,'shjours' => $shd,'nb_jours' =>$num , 'mois'=>$mois_num[$month]];
+    $tableau = ['dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month)];
     return $tableau;
 
+  }
+
+  /**
+   * Retourne le nom du mois en français
+   * @param string $num numéro du mois demandé
+   * @return string Nom du mois
+   */
+  function returnMonthName($num){
+    $mois_num=array("01"=>"Janvier","02"=>"Février","03"=>"Mars","04"=>"Avril","05"=>"Mai","06"=>"Juin","07"=>"Juillet","08"=>"Aout","09"=>"Septembre","10"=>"Octobre","11"=>"Novembre","12"=>"Décembre");
+    return $mois_num[$num];
   }
   /**
    * Retourne le tableau de tous les jours  du mois.

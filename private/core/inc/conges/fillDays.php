@@ -20,7 +20,7 @@
       foreach ($conges as $k => $c) {
               if($c->p_etat != 'refus' && $c->p_etat != 'annul'){
                 if(in_array($c->p_date_deb, $jours) && in_array($c->p_date_fin, $jours)){
-            //le congé débute et termine dans la semaine
+                    //le congé débute et termine dans la semaine
                   $jour_deb = array_search($c->p_date_deb, $jours);
                   $jour_fin = array_search($c->p_date_fin, $jours);
                   if($jour_deb == $jour_fin){               // Congé sur une seule journée

@@ -80,23 +80,7 @@
   height: 40px;*/
   /*height:38px;*/
 }
-tbody.month td{
-  border: 1px solid;
-  padding:0;
-  margin: 0;
-  background-size: 100% 100%;
-}
-tbody.month td>div {
-  background: #ccc;
-  position: relative;
-  height: 0;
-  width: 0;
-  border-top: 16px solid #ccc;
-  border-bottom: 16px solid #ccc;
-  border-left:16px solid #ccc;
-  border-right:16px solid #ccc;
-  outline: none;
-}
+
 .tab td>div {
   background: #ccc;
   position: relative;
