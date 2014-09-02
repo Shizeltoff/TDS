@@ -10,6 +10,7 @@ class MembresController extends Controller{
         $this->layouts = array('login_page','default');
         $args = func_get_args();
         $str_args = implode('/',$args);
+        $this->FillCache();
         if($this->request->data){
             $this->loadModel('Queries');
             $login = $this->request->data->login;
@@ -85,8 +86,10 @@ class MembresController extends Controller{
             $msg = "Déconnexion réussie ! ";
             $this->session->setFlash($msg,'success');    
             Log::dbWrite($this->session->read('login'),'logout');
-            $this->session->delete('user');
-            $this->session->delete('login');
+            // foreach ($_SESSION as $key => $value) {
+            //     $this->session->delete($key);
+            // }
+            session_destroy();
             $this->redirect('membres/login');
         }
     }
@@ -221,14 +224,22 @@ class MembresController extends Controller{
 
 
     /*  Récupération du nom du groupe auquel appartient l'utilisateur  */
-        $gr = $this->Queries->find('group_name',
-                                   array('conditions'=>array('g_gid'=>$this->session->read('user_group'))),
-                                   Model::FETCH_OBJ||Model::FETCH_ONE);
-        if(!empty($gr)){
-            $this->session->write('user_group_name',$gr->g_groupename);
-        }else{
+        $gr = $this->cache->read('sections');
+        $usrgrp = $this->session->read('user_group');
+        if(array_key_exists($usrgrp, $gr)){
+            $this->session->write('user_group_name',$gr[$usrgrp]);
+        }
+        else{
             $this->session->write('user_group_name',"Pas d'entité définie");
         }
+        // $gr = $this->Queries->find('sections',
+        //                            array('conditions'=>array('g_gid'=>$this->session->read('user_group'))),
+        //                            Model::FETCH_OBJ||Model::FETCH_ONE);
+        // if(!empty($gr)){
+        //     $this->session->write('user_group_name',$gr->g_groupename);
+        // }else{
+        //     $this->session->write('user_group_name',"Pas d'entité définie");
+        // }
 
         /*************************************************************/
         /***     Récupération des infos congés de l'utilisateur    ***/
@@ -297,5 +308,32 @@ class MembresController extends Controller{
     /* Fin de la fonction collectDatas()    */
     }
 
+
+
+    public function FillCache(){
+        $this->loadModel('Queries');
+        /* Récupération des jours feriés si le fichier de cache n'existe pas.*/
+        if(!$this->cache->read('ferie') || $this->cache->isExpired('ferie')){
+        // if(!$this->cache->read('ferie')){
+            $jours = $this->Queries->find('ferie');
+            if(!empty($jours)){
+                $feries=array();
+                foreach ($jours as $key => $value) {
+                    array_push($feries, $value->jf_date);
+                }
+                $this->cache->write('ferie',$feries);
+            }    
+        }
+
+        if(!$this->cache->read('sections') || $this->cache->isExpired('sections')){
+            $sec = $this->Queries->find('sections');
+            if(!empty($sec)){
+                foreach ($sec as $key => $value) {
+                    $sections[$value->g_gid] = $value->g_groupename ;
+                }
+            }
+            $this->cache->write('sections',$sections);
+        }
+
+    }
 }
-?>

@@ -5,6 +5,7 @@
 		public $queries = array(
 				'default'=>'select u_login,u_nom,u_prenom,u_is_resp,u_resp_login,u_is_admin,u_see_all,u_quotite,u_email,u_num_exercice from conges_users',
 				'user_group'=>'select gu_gid from conges_groupe_users',
+				'sections' =>'select g_gid,g_groupename from conges_groupe',
 				'group_users'=>'select 
 						gu_login,
 						u_login,u_nom,u_prenom,u_is_resp,u_resp_login,u_is_admin,u_see_all,u_quotite,u_email,u_num_exercice
@@ -13,7 +14,7 @@
 						on conges_groupe_users.gu_login = conges_users.u_login
 				',
 				'group_logins'=>'select gu_login from conges_groupe_users',
-				'group_name'=>'select * from conges_groupe',
+				// 'group_name'=>'select * from conges_groupe',
 				'responsables'=>'select
 						gr_login,
 						u_email,

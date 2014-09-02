@@ -6,4 +6,9 @@
 <?php echo $this->form->submit('Connexion');?>
 		</form>
 	</fieldset>
+	<div class="outside">
+		<p class="buttonlink">
+			<a href="<?php echo Router::url('/month/index'); ?>" class="css3button">Voir le calendrier</a>
+		</p>
+	</div>
 </nav>

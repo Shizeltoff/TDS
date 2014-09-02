@@ -162,7 +162,9 @@
       $semaine = setDays($timestamp,5);
       $semaine['sem'] = date('W',$timestamp);
       $semaine['tmstp'] = $timestamp;
-      $semaine['moisannee'] = getWeekDescription($timestamp);
+      $m = getWeekDescription($timestamp);
+      $semaine['moisannee'] = $m['moisannee'];
+      $semaine['moisnumeric'] = $m['moisnumeric'];
       return $semaine;
   }
 
@@ -181,15 +183,17 @@
     $str_mois_ven = returnMonthName($mois_ven);
     if($mois_lun != $mois_ven){
       if($year_lun!=$year_ven){
-        return $str_mois_lun.' '.$year_lun.' / '.$str_mois_ven.' '.$year_ven;
+        $moisannee = $str_mois_lun.' '.$year_lun.' / '.$str_mois_ven.' '.$year_ven;
       }
       else{
-        return $str_mois_lun.' / '.$str_mois_ven.' '.$year_lun;
+        $moisannee = $str_mois_lun.' / '.$str_mois_ven.' '.$year_lun;
       }
     }
     else{
-      return $str_mois_lun.' '.$year_lun;
+      $moisannee = $str_mois_lun.' '.$year_lun;
     }
+    $moisnumeric = $mois_lun.'-'.$year_lun;
+    return ['moisannee'=>$moisannee, 'moisnumeric'=>$moisnumeric];
   }
 
   /**
@@ -267,6 +271,8 @@
   }
   /**
    * Retourne la liste des jours du mois demandé.
+   * @param int timestamp du mois demandé.
+   * @return array  [dates,jours,nb_jours,'mois']
    */
   function returnMonthDays($tmstp){
     $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
@@ -282,7 +288,7 @@
       // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
       // $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
     }
-    $tableau = ['dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month)];
+    $tableau = ['dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month).' '.$year ];
     return $tableau;
 
   }

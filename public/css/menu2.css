@@ -1,4 +1,4 @@
-.menu2{
+.col-menu{
     position: relative; 
     /*float: left;*/
     padding : 0;
@@ -9,7 +9,7 @@
     border: 1px solid rgba(0,0,0,0.8);
 
 }
-.menu2 li a{
+.col-menu li a{
     display: block;
     border-bottom: 1px solid rgba(0,0,0,0.2);
     border-top: 1px solid rgba(255,255,255,0.2);
@@ -20,52 +20,52 @@
     filter: dropshadow(color=#000, offx=1, offy=0);
     padding: 10px;
 }
-.menu2 li a:hover{
+.col-menu li a:hover{
     background: #4a6ba2;
 }
-.menu2  li{
+.col-menu  li{
     display: inline;
 }
-.menu2 li ul li a{
+.col-menu li ul li a{
     font-size: 14px;
     color: :#47689d;
     text-shadow: 1px 0px 1px rgba(0,0,0,0.5);
     filter: dropshadow(color=#000, offx=1, offy=0);
 }
-.menu2 ul{
+.col-menu ul{
     margin: 0;
     padding: 0;
     list-style: none;
     height: 0;
     overflow: hidden;
-
+    
 }
 
-.menu2 li:hover ul{
+.col-menu li:hover ul{
     height: 78px;
     transition:0.5s;
     -moz-transition:0.5s;
     -webkit-transition:0.5s;
 }
-.menu2 ul li a{
+.col-menu ul li a{
     background: #D2D2D2;
 }
-.menu2 ul li a:hover{
+.col-menu ul li a:hover{
  background: #47689d;
  } 
 
-.menu2 ul li a.tds:before{
+.col-menu ul li a.tds:before{
     background: url('../img/TDS.GIF');
 }
-.menu2 li a.hist:before{
+.col-menu li a.hist:before{
     background: url('../img/history.png');
 }
-.menu2 li a.profile:before{
+.col-menu li a.profile:before{
     background: url('../img/quicksettings.png');
     /*background: url('../img/parametres.png');*/
 }
 
-.menu2 li a.deco:before{
+.col-menu li a.deco:before{
     /*background: url('../img/deconnexion.png');*/
     background: url('../img/logout.png');
 }

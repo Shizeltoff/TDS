@@ -5,9 +5,8 @@ $(function(){
             var $annee = this.value;
             var $type_abs = $("#type_abs").val();
             var $ordre = getSelectedRadioValue("ordre");
-            $("#content").empty();            
             $.post(BASE_URL+"/ajax/suivi/suivi", {type_abs : $type_abs , annee : $annee, ordre : $ordre},function(data){    
-                $("#content").fadeIn().append(data);
+                $("#content").empty().fadeIn().append(data);
                 });
         });
     })

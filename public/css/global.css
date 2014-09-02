@@ -354,7 +354,7 @@ header,footer h1{
 }
 .login {
     padding-top: 10px;
-    padding-left: 40%;
+    margin: 0 auto;
     width: 300px;
     margin-top: 150px;    
 }
@@ -804,4 +804,14 @@ input[type="text"] .datejoff{
 .tdsmenu{
     font-size: 12px;
     padding: 3px;
+}
+
+.outside{
+  margin: 15px auto;
+
+}
+.buttonlink{
+  /*position: inherit;*/
+  width: 50%;
+  margin : 0 auto;
 }

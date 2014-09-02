@@ -42,6 +42,6 @@ class DebugController extends Controller{
       }
    }
 
-	public function msgErreur(){
+	public function errormsg(){
 		}
 }

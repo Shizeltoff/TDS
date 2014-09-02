@@ -127,7 +127,7 @@ class SuiviController extends Controller{
             $erreur = "<p>Vous n'êtes pas autorisé à supprimer ce congé !<br>";
             $erreur .= "Vous allez être redirigé dans 3 secondes</p>";
             $this->set('conge',$erreur);
-            sleep(2);
+            sleep(3);
             $this->redirect('suivi/suivi/abs');
         }
     }

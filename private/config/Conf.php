@@ -74,10 +74,14 @@ Router::prefix('ajax','ajax');
 
 
 Router::connect('calendrier','tds/edittds');
-Router::connect('vue-mensuelle','month/index');
+Router::connect('vue-mensuelle/:mois', 'month/index/mois:([0-9]+)-([0-9]+)');
+Router::connect('vue-mensuelle', 'month/index');
+// Router::connect('offlinecal/:mois', 'month/offlineview/mois:([0-9]+)-([0-9]+)');
 Router::connect('nouvelle-absence','tds/newAbsence');
+Router::connect('suivi-:type','suivi/suivi/type:([a-z]+)');
 Router::connect('connexion','membres/login');
 Router::connect('jour-off-periodique','membres/defJoff');
 Router::connect('solde','suivi/solde');
+Router::connect('export-ical','calendar/exportIcal');
 
 ?>

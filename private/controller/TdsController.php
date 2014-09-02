@@ -418,7 +418,7 @@ class TdsController extends Controller{
         $table['real_sem'] = $semaine['sem'];
         $table['sem'] = $semaine['sem'];
         $table['printline'] = "<a href=".Router::url('/tds/printWeek/'.$semaine['tmstp'])." target='_blank' class='css3button'>Imprimer</a>";
-        $table['monthview'] = "<a href=".Router::url('/month/index/'.$semaine['tmstp'])." class='css3button'>Vue mensuelle</a>";
+        $table['monthview'] = "<a href=".Router::url('/month/index/mois:'.$semaine['moisnumeric'])." class='css3button'>Vue mensuelle</a>";
         return $table;
     }
 
@@ -930,7 +930,8 @@ class TdsController extends Controller{
      */
     public function printWeek($weektimestamp){
       $this->layouts=array('default','ajax');
-      $this->set('section',$this->session->read('user_group_name'));
+      $gr = $this->cache->read('sections');
+      $this->set('section',$gr[$this->session->read('user_group')]);      
       $this->set('table',$this->createPrintTable(setWeek($weektimestamp)));
     }
 
