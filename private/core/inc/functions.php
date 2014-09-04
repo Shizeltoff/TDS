@@ -193,7 +193,7 @@
       $moisannee = $str_mois_lun.' '.$year_lun;
     }
     $moisnumeric = $mois_lun.'-'.$year_lun;
-    return ['moisannee'=>$moisannee, 'moisnumeric'=>$moisnumeric];
+    return array('moisannee'=>$moisannee, 'moisnumeric'=>$moisnumeric);
   }
 
   /**
@@ -267,7 +267,8 @@
     $year = date('Y',$tmstp);
     // $first = date('Y-m-d',mktime(0,0,0,$month,1,$year));
     // $last = date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1);
-    return [date('Y-m-d',mktime(0,0,0,$month,1,$year)),date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1)];
+    return array(date('Y-m-d',mktime(0,0,0,$month,1,$year)),date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1));
+    // return [date('Y-m-d',mktime(0,0,0,$month,1,$year)),date('Y-m-d',mktime(0,0,0,$month+1,1,$year)-1)];
   }
   /**
    * Retourne la liste des jours du mois demandé.
@@ -288,7 +289,7 @@
       // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
       // $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
     }
-    $tableau = ['dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month).' '.$year ];
+    $tableau = array('dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month).' '.$year);
     return $tableau;
 
   }

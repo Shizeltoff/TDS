@@ -7,14 +7,13 @@ class MonthController extends Controller{
 	 * @param string $month Mois à afficher mm-yyyy
 	 * @param string $grp Groupe d'utilisateurs à afficher
 	 */
-	public function index($month=null, $grp="1"){
+	public function index($month=null, $grp="12"){
 		if (isset($_SESSION['user'])) {
 			$this->layouts = array('main','default');
-			$users = $this->session->read('group_logins');
+			$grp = $this->session->read('user_group');
 		}else{
 			$this->layouts = array('offlinemain','default');
 			$this->getAbsenceLabels();
-			$users = $this->GetGroupUsers($grp);
 		}
 		$this->authentificate = true;
 		$t = $this->GetMonthTimestamp($month);
@@ -58,7 +57,7 @@ class MonthController extends Controller{
 			}
 			$table['allusers'] .= '</tr>';
 		}
-		$table['printline'] = 'month/printMonth/'.$month.'/'.$grp;
+		$table['printline'] = '/month/printMonth/'.$month.'/'.$grp;
 		return $table;
 	}
 

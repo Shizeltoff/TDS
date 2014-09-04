@@ -18,8 +18,22 @@
                     <?php echo $table['allusers']; ?>
                 </tbody>
             </table>
-            <hr>
-
+            <div class="legend_box">
+                <table class="tdslegend monthlegend">
+                    <tr>
+                        <td><div class="off">Journée Off</div></td>
+                        <td><div class="ca">Congés Payés</div></td>
+                        <td><div class="rtt">RTT</div></td>
+                        <td><div class="rcp">Récup</div></td>
+                        <td><div class="fo">Formation</div></td>
+                        <td><div class="mal">Maladie</div></td>
+                        <td><div class="mi">Mission</div></td>
+                        <td><div class="mo">MO</div></td>
+                        <td><div class="oth">Autre</div></td>
+                        <td><div class="taf">Présence</div></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 </div>
 <script type="text/javascript">

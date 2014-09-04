@@ -200,7 +200,8 @@ class MembresController extends Controller{
             ),
             Model::FETCH_OBJ
         );
-        $logins = [$login => $usr->u_nom];
+        // $logins = [$login => $usr->u_nom];
+        $logins[$login]=  $usr->u_nom;
         foreach ($users as $k => $u) {
             $logins[$u->u_login] = $u->u_nom;
         }

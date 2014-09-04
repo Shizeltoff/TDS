@@ -29,10 +29,27 @@
                     <?php echo $table['allusers']; ?>
                 </tbody>
             </table>
+            <div class="legend_box">
+                <table class="tdslegend monthlegend">
+                    <tr>
+                        <td><div class="off">Journée Off</div></td>
+                        <td><div class="ca">Congés Payés</div></td>
+                        <td><div class="rtt">RTT</div></td>
+                        <td><div class="rcp">Récup</div></td>
+                        <td><div class="fo">Formation</div></td>
+                        <td><div class="mal">Maladie</div></td>
+                        <td><div class="mi">Mission</div></td>
+                        <td><div class="mo">MO</div></td>
+                        <td><div class="oth">Autre</div></td>
+                        <td><div class="taf">Présence</div></td>
+                    </tr>
+                </table>
+            </div>
             <hr>
         <p>
-            <a href="/" class="css3button">Retour</a>
-            <a href="<?php echo $table['printline'];?>" class="css3button" id="printline" target="_blank">Imprimer</a>
+            <a href="<?php echo Router::url('tds/edittds') ;?>" class="css3button">Retour</a>
+            <a href="<?php echo Router::url($table['printline']) ;?>"  class="css3button" id="printline" target="_blank">Imprimer</a>
+            <!-- <a href="<?php //echo $table['printline'];?>" class="css3button" id="printline" target="_blank">Imprimer</a> -->
         </p>
 
         </div>

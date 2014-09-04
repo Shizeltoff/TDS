@@ -295,3 +295,12 @@ hr{
   padding-bottom: 7px;
   padding-top: 0;
 }
+
+.legend_box{
+  width: 100%;
+  margin: 10px auto;
+}
+
+.monthlegend{
+  margin: 0 auto;
+}

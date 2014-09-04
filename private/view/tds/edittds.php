@@ -30,25 +30,15 @@
     <table class="tdslegend">
         <tr>
             <td><div class="off">Journée Off</div></td>
-            <!-- <td>Journée Off</td> -->
             <td><div class="ca">Congés Payés</div></td>
-            <!-- <td>Congés Payés</td> -->
             <td><div class="rtt">RTT</div></td>
-            <!-- <td>RTT</td> -->
             <td><div class="rcp">Récup</div></td>
-            <!-- <td>Récup</td> -->
             <td><div class="fo">Formation</div></td>
-            <!-- <td>Formation</td> -->
             <td><div class="mal">Maladie</div></td>
-            <!-- <td>Maladie</td> -->
             <td><div class="mi">Mission</div></td>
-            <!-- <td>Mission</td> -->
             <td><div class="mo">MO</div></td>
-            <!-- <td>MO</td> -->
             <td><div class="oth">Autre</div></td>
-            <!-- <td>Autre (Abs syndicale,...)</td> -->
             <td><div class="taf">Présence</div></td>
-            <!-- <td>Présence</td> -->
         </tr>
     </table>
 </div>
