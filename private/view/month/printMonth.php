@@ -18,24 +18,33 @@
                     <?php echo $table['allusers']; ?>
                 </tbody>
             </table>
-            <div class="legend_box">
-                <table class="tdslegend monthlegend">
-                    <tr>
-                        <td><div class="off">Journée Off</div></td>
-                        <td><div class="ca">Congés Payés</div></td>
-                        <td><div class="rtt">RTT</div></td>
-                        <td><div class="rcp">Récup</div></td>
-                        <td><div class="fo">Formation</div></td>
-                        <td><div class="mal">Maladie</div></td>
-                        <td><div class="mi">Mission</div></td>
-                        <td><div class="mo">MO</div></td>
-                        <td><div class="oth">Autre</div></td>
-                        <td><div class="taf">Présence</div></td>
-                    </tr>
-                </table>
-            </div>
+            <table class="printlegend">
+                <tr>
+                    <td><div class="off"></div></td>
+                    <td>Journée Off</td>
+                    <td><div class="ca"></div></td>
+                    <td>Congés Payés</td>
+                    <td><div class="rtt"></div></td>
+                    <td>RTT</td>
+                    <td><div class="rcp"></div></td>
+                    <td>Récup</td>
+                    <td><div class="fo"></div></td>
+                    <td>Formation</td>
+                    <td><div class="mal"></div></td>
+                    <td>Maladie</td>
+                    <td><div class="mi"></div></td>
+                    <td>Mission</td>
+                    <td><div class="mo"></div></td>
+                    <td>MO</td>
+                    <td><div class="oth"></div></td>
+                    <td>Autre (Abs syndicale,...)</td>
+                    <td><div class="taf"></div></td>
+                    <td>Présence</td>
+                </tr>
+            </table>
         </div>
 </div>
 <script type="text/javascript">
     window.print();
+    window.close();
 </script>

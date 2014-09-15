@@ -21,7 +21,8 @@
         </table>
 </div>
 <div>
-    <table class="tdslegend">
+    <table class="printlegend">
+    <!-- <table class="tdslegend"> -->
         <tr>
             <td><div class="off"></div></td>
             <td>Journée Off</td>

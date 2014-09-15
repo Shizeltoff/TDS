@@ -279,17 +279,28 @@
     $lodays = array('Mon'=>'lun','Tue'=>'mar','Wed'=>'mer','Thu'=>'jeu','Fri'=>'ven','Sat'=>"sam",'Sun'=>"dim");
     $days = array();
     $dates = array();
+    $we = array();
     $month = date('m',$tmstp);
     $year = date('Y',$tmstp);
+    $now = getCurrentTimestamp();
+    $d = date('d',$now);
+    $m = date('m',$now);
+    $y = date('Y',$now);
+    $t = mktime(0,0,0,$m,$d,$y);
+    $today="";
     $num = cal_days_in_month(CAL_GREGORIAN, $month , $year);
     for ($i=0; $i < $num ; $i++) { 
       $mktime = mktime(0,0,0,$month,1+$i,$year);    
       $days[date('j', $mktime)] = $lodays[date('D',$mktime)];
       $dates[date('j', $mktime)] = date('Y-m-d',$mktime);
-      // $days[date('Y-m-d', $mktime)] = $lodays[date('D',$mktime)];
-      // $shd[date('d', $mktime)] = $shdays[date('D',$mktime)];
+      if($lodays[date('D',$mktime)]=="sam" || $lodays[date('D',$mktime)]=="dim"){
+        array_push($we, date('j', $mktime));
+      }
+      if($mktime == $t){
+        $today=date('j',$mktime);
+      }
     }
-    $tableau = array('dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month).' '.$year);
+    $tableau = array('dates'=>$dates,'jours'=>$days,'nb_jours' =>$num , 'mois'=>returnMonthName($month).' '.$year , 'we'=>$we , "today"=>$today);
     return $tableau;
 
   }

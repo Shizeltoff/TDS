@@ -196,7 +196,7 @@ class MembresController extends Controller{
                     'gu_gid'=> $this->session->read('user_group'),
                     'gu_login'=>array('<>', $this->session->read('login'))
                 ),
-                'order'=>'gu_login'
+                'order'=>'u_nom'
             ),
             Model::FETCH_OBJ
         );

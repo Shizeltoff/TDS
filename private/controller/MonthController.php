@@ -7,7 +7,7 @@ class MonthController extends Controller{
 	 * @param string $month Mois à afficher mm-yyyy
 	 * @param string $grp Groupe d'utilisateurs à afficher
 	 */
-	public function index($month=null, $grp="12"){
+	public function index($month=null, $grp="2"){
 		if (isset($_SESSION['user'])) {
 			$this->layouts = array('main','default');
 			$grp = $this->session->read('user_group');
@@ -19,6 +19,7 @@ class MonthController extends Controller{
 		$t = $this->GetMonthTimestamp($month);
 		$table = $this->createMonthTable($t , $grp);
 		$sections = $this->cache->read('sections');
+		// $this->set('layoutTitle',$sections[$grp].' - '.$table['mois']); 
 		$this->set('sections',$sections);
 		$this->set('grp',$grp);
 		$this->set('table',$table);
@@ -41,12 +42,19 @@ class MonthController extends Controller{
 		$nb_jours = $tmp['nb_jours'];
 		$table['month_detail'] = '<th></th>';
 		foreach ($tmp['jours'] as $key => $value) {
-				$table['month_detail'] .= '<td>'.$value.' '.$key.'</td>';
+				if ($tmp['today'] == $key) {
+					$table['month_detail'] .= '<td class="today">'.$value.' '.$key.'</td>';
+				}
+				elseif($value=="sam" || $value=="dim"){
+					$table['month_detail'] .= '<td class="weekend">'.$value.' '.$key.'</td>';
+				}else{
+					$table['month_detail'] .= '<td>'.$value.' '.$key.'</td>';
+				}
 		}
 		$table['allusers'] = '';
 		foreach ($users as $l => $n) {
 			$conges = $this->getUserConges($l,$month);
-	        $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'));
+	        $params = fillDays($conges,$jours,$types,$this->cache->read('ferie'),$tmp['we']);
 	        $classe = $params['classe'];
 	        // $ids = $params['ids'];
 	        // $etat = $params['etat'];
@@ -99,7 +107,8 @@ class MonthController extends Controller{
 		$this->loadModel('Queries');
 		$usrs = $this->Queries->find(
 			'group_users',
-			array("conditions"=>array('gu_gid'=>$grp)),
+			array("conditions"=>array('gu_gid'=>$grp),
+				'order'=>'u_nom'),
 			Model::FETCH_OBJ
 			);
 		foreach ($usrs as $k => $v) {
@@ -126,7 +135,6 @@ class MonthController extends Controller{
 	}
 
 	public function ajax_createMonthTable(){
-		//trouver le moyen de faire passer les utilisateurs ! 
 		$m = $this->createMonthTable($_POST['month'],$_POST['groupe']);
         $this->set('data',$m);
 	}
@@ -148,9 +156,10 @@ class MonthController extends Controller{
 
 
 	public function printMonth($month , $grp){
-		$this->layouts=array('default');
+		$this->layouts=array('printlayout');
 		$sections = $this->cache->read('sections');
 		$t = $this->createMonthTable($month,$grp);
+		$this->set('layoutTitle',$sections[$grp].' - '.$t['mois']); 
 		$this->set('nom_section',$sections[$grp]);
 		$this->set('table',$t);
 	}

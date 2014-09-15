@@ -2,3 +2,17 @@ header,nav,footer{display: none;}
 #menu{display: none;}
 section#content {display: block;}
 @page { size: A4 landscape }
+body{
+  background: none;
+}
+.tab{
+  margin: 0 auto;
+}
+
+.today{
+  color: inherit;
+}
+
+.we{
+  border-color: #727C88;
+}
